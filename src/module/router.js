@@ -47,7 +47,7 @@ let router = ($urlRouterProvider, $stateProvider, $locationProvider) => {
         }
       }
     });
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/login');
 }
 router.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider'];
 

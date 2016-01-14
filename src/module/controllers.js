@@ -3,8 +3,10 @@ import 'chart.js';
 import ng_chart from 'angular-chart.js';
 
 angular.module('App.controllers', [ng_chart.name])
-  .controller('LoginCtrl', ($scope) => {
-
+  .controller('LoginCtrl', ($scope, $location) => {
+      $scope.submit = () => {
+        $location.path('dashboard');
+      }
   })
   .controller('MenuCtrl', ($scope) => {
 
