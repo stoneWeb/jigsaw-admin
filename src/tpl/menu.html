@@ -1,0 +1,28 @@
+<div id="head">
+  <h1 class="logo"><i class="ion ion-social-freebsd-devil"></i> JIGSAW Admin</h1>
+</div>
+<div id="sidebar">
+  <ul class="side_menu">
+    <li ng-class="{active: isActive('/dashboard')}">
+      <a ui-sref="admin.dashboard"><i class="ion ion-home"></i> Dashboard<span class="badge">10</span></a>
+    </li>
+    <li ng-class="{active: isActive('/users')}">
+      <a ui-sref="admin.users"><i class="ion ion-person"></i> Users</a>
+    </li>
+    <li ng-class="{active: isActive('/questions')}">
+      <a ui-sref="admin.questions"><i class="ion ion-clipboard"></i> Questions</a>
+    </li>
+    <li ng-class="{active: isActive('/tasks')}">
+      <a ui-sref="admin.tasks"><i class="ion ion-ios-flask"></i> Tasks</a>
+    </li>
+  </ul>
+</div>
+<div id="main">
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li class="active">Dashboard</li>
+  </ol>
+
+  <div id="content" ui-view="menuContent">
+  </div>
+</div>
