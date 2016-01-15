@@ -1,7 +1,10 @@
 # Angular 1.x WebPack + Babel
 
-run
+###run
 ```
 npm install
-webpack run dev
+npm run dev
+
+http://localhost:8080
 ```
+please make sure install webpack before run.
