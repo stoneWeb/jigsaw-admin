@@ -49,7 +49,8 @@ let router = ($urlRouterProvider, $stateProvider, $locationProvider) => {
       template: require('../tpl/menu.html'),
       controller: 'MenuCtrl'
     });
-  for(let key in routerCfg){
+
+  Object.keys(routerCfg).forEach((key) => {
     let o = routerCfg[key];
     provider.state(o.state, {
       url: o.url,
@@ -60,7 +61,7 @@ let router = ($urlRouterProvider, $stateProvider, $locationProvider) => {
         }
       }
     });
-  }
+  })
   $urlRouterProvider.otherwise('/login');
 }
 router.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider'];
