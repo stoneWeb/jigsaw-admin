@@ -1,1 +1,36 @@
-questions....
+<div class="filter">
+  <a href="javascript:;" class="filter-del btn btn-danger">Selected Delete</a>
+  <a ui-sref="admin.questions_add" class="filter-add btn btn-success">Add Questions</a>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search for...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button">Go!</button>
+    </span>
+  </div>
+</div>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th><input type="checkbox"></th>
+      <th>Title</th>
+      <th>Handle</th>
+    </tr>
+  </thead>
+  <tr>
+    <td><input type="checkbox"></td>
+    <td>this is title...</td>
+    <td><a href="javascript:;" class="table-handle-icon" uib-tooltip="Edit User"><i class="ion ion-edit"></i></a><a href="javascript:;" class="table-handle-icon" uib-tooltip="Delete User"><i class="ion ion-android-delete"></i></a></td>
+  </tr>
+  <tr>
+    <td><input type="checkbox"></td>
+    <td>this is title...</td>
+    <td><a href="javascript:;" class="table-handle-icon" uib-tooltip="Edit User"><i class="ion ion-edit"></i></a><a href="javascript:;" class="table-handle-icon" uib-tooltip="Delete User"><i class="ion ion-android-delete"></i></a></td>
+  </tr>
+  <tfoot>
+    <tr>
+      <th><input type="checkbox"></th>
+      <th>Title</th>
+      <th>Handle</th>
+    </tr>
+  </tfoot>
+</table>

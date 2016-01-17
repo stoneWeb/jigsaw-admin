@@ -1,4 +1,4 @@
-# Angular 1.x WebPack + Babel
+# Angular + WebPack + Babel
 
 ###run
 ```

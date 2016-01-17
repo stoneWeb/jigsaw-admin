@@ -18,10 +18,7 @@
   </ul>
 </div>
 <div id="main">
-  <ol class="breadcrumb">
-    <li><a href="#">Home</a></li>
-    <li class="active">Dashboard</li>
-  </ol>
+  <ol class="breadcrumb" ng-bind-html="crumbs()"></ol>
 
   <div id="content" ui-view="menuContent">
   </div>

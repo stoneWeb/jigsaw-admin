@@ -1,6 +1,44 @@
+let routerCfg = {
+  '/dashboard': {
+    state: 'admin.dashboard',
+    crumbs: ['Dashboard'],
+    url: 'dashboard',
+    template: require('../tpl/dashboard.html'),
+    controller: 'DashCtrl'
+  },
+  '/questions': {
+    state: 'admin.questions',
+    crumbs: ['Questions'],
+    url: 'questions',
+    template: require('../tpl/questions.html'),
+    controller: 'QuesCtrl'
+  },
+  '/questions/add': {
+    crumbs: ['<a href="#/questions">Questions</a>', 'Add'],
+    state: 'admin.questions_add',
+    url: 'questions/add',
+    template: require('../tpl/questions.add.html'),
+    controller: 'QuesAddCtrl'
+  },
+  '/users': {
+    crumbs: ['Users'],
+    state: 'admin.users',
+    url: 'users',
+    template: require('../tpl/users.html'),
+    controller: 'UsersCtrl'
+  },
+  '/tasks': {
+    crumbs: ['Tasks'],
+    state: 'admin.tasks',
+    url: 'tasks',
+    template: require('../tpl/tasks.html'),
+    controller: 'TasksCtrl'
+  }
+}
+
 let router = ($urlRouterProvider, $stateProvider, $locationProvider) => {
   //$locationProvider.html5Mode(true);
-  $stateProvider
+  let provider = $stateProvider
     .state('login', {
       url: '/login',
       template: require('../tpl/login.html'),
@@ -10,45 +48,21 @@ let router = ($urlRouterProvider, $stateProvider, $locationProvider) => {
       url: '/',
       template: require('../tpl/menu.html'),
       controller: 'MenuCtrl'
-    })
-    .state('admin.dashboard', {
-      url: 'dashboard',
+    });
+  for(let key in routerCfg){
+    let o = routerCfg[key];
+    provider.state(o.state, {
+      url: o.url,
       views: {
         'menuContent': {
-          template: require('../tpl/dashboard.html'),
-          controller: 'DashCtrl'
-        }
-      }
-    })
-    .state('admin.questions', {
-      url: 'questions',
-      views: {
-        'menuContent': {
-          template: require('../tpl/questions.html'),
-          controller: 'QuesCtrl'
-        }
-      }
-    })
-    .state('admin.users', {
-      url: 'users',
-      views: {
-        'menuContent': {
-          template: require('../tpl/users.html'),
-          controller: 'UsersCtrl'
-        }
-      }
-    })
-    .state('admin.tasks', {
-      url: 'tasks',
-      views: {
-        'menuContent': {
-          template: require('../tpl/tasks.html'),
-          controller: 'TasksCtrl'
+          template: o.template,
+          controller: o.controller
         }
       }
     });
+  }
   $urlRouterProvider.otherwise('/login');
 }
 router.$inject = ['$urlRouterProvider', '$stateProvider', '$locationProvider'];
 
-export default router
+export default {router, routerCfg}

@@ -161,14 +161,17 @@ a:hover, a:focus {
   color: #fff;
   line-height: 18px;
   margin: 0 10px 10px 0px;
-  padding: 0 10px;
+	position: relative;
 }
 .quick-actions li a{
   display: block;
-  padding: 10px 30px;
+  padding: 10px 40px;
   color: #fff;
   font-size: 14px;
   font-weight: lighter;
+	background-color: rgba(0,0,0,0);
+	-webkit-transition: background-color 200ms ease;
+	transition: background-color 200ms ease;
 }
 .quick-actions li a i[class^="ion"]{
     font-size: 30px;
@@ -176,9 +179,22 @@ a:hover, a:focus {
     margin: 0 auto 5px;
     width: 1.25em;
     text-align: center;
+		opacity: 1;
+		-webkit-transform: scale(1);
+	  transform: scale(1);
+		-webkit-transition: -webkit-transform 200ms ease;
+	  transition: transform 200ms ease;
 }
+.quick-actions li:hover a{
+		background-color: rgba(0,0,0,.6);
+}
+.quick-actions li:hover a i[class^="ion"]{
+		-webkit-transform: scale(1.6);
+		transform: scale(1.6);
+}
+
 .quick-actions li:hover{
-  background-color: #2E363F
+
 }
 .quick-actions .qa-dash{
   background-color: #27a9e3
@@ -187,11 +203,44 @@ a:hover, a:focus {
   background-color: #da542e
 }
 .quick-actions .qa-addq{
-  background-color: #2255a4
+  background-color: #ffb848
 }
 .quick-actions .qa-addt{
   background-color: #28b779
 }
 .quick-actions .qa-set{
-  background-color: #ffb848
+  background-color: #2255a4
+}
+
+.table{
+	background-color: #fff
+}
+.table th {
+    font-weight: normal;
+    text-shadow: rgba(255,255,255,0.8) 0 1px 0;
+    background: #f1f1f1;
+    background-image: -webkit-gradient(linear,left bottom,left top,from(#ececec),to(#f9f9f9));
+    background-image: -webkit-linear-gradient(bottom,#ececec,#f9f9f9);
+    background-image: -moz-linear-gradient(bottom,#ececec,#f9f9f9);
+    background-image: -o-linear-gradient(bottom,#ececec,#f9f9f9);
+    background-image: linear-gradient(to top,#ececec,#f9f9f9);
+}
+.table-handle-icon{
+	font-size: 16px;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+.label{
+	padding-top: .4em;
+}
+.filter{
+	padding-bottom: 15px;
+	overflow: hidden;
+}
+.filter-del, .filter-add{
+	float: left;
+	margin-right: 20px;
+}
+.filter .input-group{
+	width: 250px;
 }

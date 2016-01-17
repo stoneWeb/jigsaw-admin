@@ -1,39 +1,21 @@
-import angular from 'angular';
+'use strict';
 import 'chart.js';
 import ng_chart from 'angular-chart.js';
 
+import DashCtrl from './pageCtrl/dash';
+import LoginCtrl from './pageCtrl/login';
+import MenuCtrl from './pageCtrl/menu';
+import QuesCtrl from './pageCtrl/question';
+import QuesAddCtrl from './pageCtrl/question.add';
+import TasksCtrl from './pageCtrl/task';
+import UsersCtrl from './pageCtrl/user';
+
 angular.module('App.controllers', [ng_chart.name])
-  .controller('LoginCtrl', ($scope, $location) => {
-      $scope.submit = () => {
-        $location.path('dashboard');
-      }
-  })
-  .controller('MenuCtrl', ($scope) => {
-
-  })
-  .controller('DashCtrl', ($scope) => {
-      $scope.labels2 = ["January", "February", "March", "April", "May", "June", "July"];
-      $scope.series = ['Series A', 'Series B'];
-      $scope.data2 = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
-      ];
-
-      $scope.labels1 = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-      $scope.data1 = [300, 500, 100];
-
-      $scope.labels3 =["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"];
-      $scope.data3 = [
-        [65, 59, 90, 81, 56, 55, 40],
-        [28, 48, 40, 19, 96, 27, 100]
-      ];
-  })
-  .controller('QuesCtrl', ($scope) => {
-
-  })
-  .controller('UsersCtrl', ($scope) => {
-
-  })
-  .controller('TasksCtrl', ($scope) => {
-
-  });
+.controller('MenuCtrl', MenuCtrl)
+.controller('LoginCtrl', LoginCtrl)
+.controller('UsersCtrl', UsersCtrl)
+.controller('QuesCtrl', QuesCtrl)
+.controller('QuesAddCtrl', QuesAddCtrl)
+.controller('TasksCtrl', TasksCtrl)
+.controller('MenuCtrl', MenuCtrl)
+.controller('DashCtrl', DashCtrl);
