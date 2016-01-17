@@ -27,12 +27,12 @@ angular.module('app', [
   $rootScope.crumbs = () => {
     let path = $location.path();
     if(routerCfg[path]){
-      let crmb = routerCfg[path].crumbs;
-      let html = '';
-      crmb.forEach((item)=>{
-        html += '<li>'+ item +'</li>';
-      });
-      return $sce.trustAsHtml(html);
+      let crmbs = routerCfg[path].crumbs;
+      let html = [];
+      for(let item of crmbs){
+        html.push(`<li>${item}</li>`);
+      }
+      return $sce.trustAsHtml(html.join(''));
     }
     return ''
   };
