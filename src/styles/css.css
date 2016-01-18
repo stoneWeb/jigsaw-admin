@@ -31,6 +31,15 @@ a:hover, a:focus {
 	text-decoration: none;
   color:#28b779;
 }
+.btn .ion{
+	font-size: 1.2em;
+	margin-right: 5px;
+}
+.panel-heading .ion{
+	font-size: 18px;
+	vertical-align: middle;
+	margin-right: 5px;
+}
 
 #head{
   position: relative;
@@ -237,10 +246,47 @@ a:hover, a:focus {
 	padding-bottom: 15px;
 	overflow: hidden;
 }
-.filter-del, .filter-add{
+.filter-del, .filter-add, .filter .form-control{
 	float: left;
 	margin-right: 20px;
 }
+.filter .form-control{
+	width: 180px;
+}
 .filter .input-group{
 	width: 250px;
+}
+.ctrl-title .form-control{
+	width: 300px;
+	margin-left: 10px;
+}
+.ctrl-choice-addbtn{
+	font-size: 28px;
+	color: #333;
+	width: 26px;
+	height: 26px;
+	display: inline-block;
+}
+.ctrl-choices{
+	margin-top: 10px;
+}
+.ctrl-choices .ctrl-choices-item{
+	position: relative;
+	width: 120px;
+	height: 52px;
+	margin: 0 5px 5px 0;
+	float: left;
+}
+.ctrl-choices-item:hover a{
+	display: inline-block;
+}
+.ctrl-choices-item a{
+	font-size: 16px;
+	display: none;
+}
+.ctrl-choices-item a:hover{
+	color: #c00
+}
+.question-btn .btn{
+	margin-right: 15px;
 }

@@ -13,14 +13,18 @@ import ui_bootstrap from 'angular-ui-bootstrap';
 // import controllers
 import './module/controllers';
 
+// import directives
+import './module/directives';
+
 let {
   router,
   routerCfg
 } = r;
 
-angular.module('app', [
+let app = angular.module('app', [
   ui_router,
   ui_bootstrap,
+  'App.directives',
   'App.controllers'
 ])
 .run(($rootScope, $location, $sce) => {
