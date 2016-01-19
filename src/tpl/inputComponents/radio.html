@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+    <div class="panel-heading"><i class="ion ion-android-clipboard"></i>radio
+      <a href="javascript:;" class="panel-close" ng-click="removeData()"><i class="ion ion-ios-close-outline"></i></a>
+    </div>
+    <div class="panel-body">
+      <div class="form-group ctrl-choice">
+        <div class="form-inline ctrl-title">
+          <label for="ctrl-title">Title</label>
+          <input type="text" class="form-control" ng-model="item.title" placeholder="Title">
+          <a href="javascript:;" ng-click="addItem()" class="ctrl-choice-addbtn"><i class="ion ion-plus-circled"></i></a>
+        </div>
+        <div class="ctrl-choices">
+          <span class="ctrl-choices-item" ng-repeat="e in item.options track by $index">
+            <input type="text" class="form-control" ng-model="item.options[$index]" placeholder="options">
+            <a href="javascript:;" ng-click="removeItem($index)" class="ctrl-choice-delbtn"><i class="ion ion-minus-circled"></i></a>
+          </span>
+        </div>
+      </div>
+    </div>
+</div>

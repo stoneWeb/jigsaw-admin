@@ -250,7 +250,7 @@ a:hover, a:focus {
 	float: left;
 	margin-right: 20px;
 }
-.filter .form-control{
+.filter-qadd .form-control{
 	width: 180px;
 }
 .filter .input-group{
@@ -266,6 +266,8 @@ a:hover, a:focus {
 	width: 26px;
 	height: 26px;
 	display: inline-block;
+	vertical-align: middle;
+	margin-left: 10px;
 }
 .ctrl-choices{
 	margin-top: 10px;
@@ -289,4 +291,26 @@ a:hover, a:focus {
 }
 .question-btn .btn{
 	margin-right: 15px;
+}
+.panel-heading{
+	position: relative;
+}
+.panel-heading .panel-close{
+	position: absolute;
+	right: 15px;
+	top: 10px;
+	font-size: 20px;
+}
+.preview{
+	padding: 0 15px;
+}
+.preview-title {
+	text-align: center;
+}
+.preview-desp{
+	font-size: 13px;
+	color: #999
+}
+.preview-ctrl{
+	margin-top: 30px;
 }

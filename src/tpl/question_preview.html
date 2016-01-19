@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{data.title}}</h3>
+</div>
+<div class="modal-body">
+  <p class="preview-desp">
+    {{data.description}}
+  </p>
+  <div class="preview-ctrl">
+    <div class="form-group" ng-repeat="item in data.items track by $index">
+      <div>
+        <label>{{item.title}}</label><br/>
+        <input ng-if='item.type == "textInput"' type="email" class="form-control" placeholder="{{item.title}}">
+        <div ng-if='item.type == "radio"'>
+          <label class="radio-inline" ng-repeat="e in item.options">
+            <input type="radio" name="preview" value=""> {{e}}
+          </label>
+        </div>
+        <div ng-if='item.type == "multi"'>
+          <label class="checkbox-inline" ng-repeat="e in item.options">
+            <input type="checkbox" value=""> {{e}}
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+</div>
+<div ng-repeat="item in data track by $index">
+
+</div>

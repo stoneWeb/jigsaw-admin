@@ -1,0 +1,61 @@
+<!doctype html>
+<html ng-app="app" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular App</title>
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .preview{
+      padding: 0 15px;
+    }
+    .preview-title {
+      text-align: center;
+    }
+    .preview-desp{
+      font-size: 13px;
+      color: #999
+    }
+    .preview-ctrl{
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview">
+    <h3 class="preview-title">这里是标题</h3>
+    <p class="preview-desp">
+      当鼠标悬停在缩写和缩写词上时就会显示完整内容，Bootstrap 实现了对 HTML 的 <abbr> 元素的增强样式。缩略语元素带有 title 属性，外观表现为带有较浅的虚线框，鼠标移至上面时会变成带有“问号”的指针。如想看完整的内容可把鼠标悬停在缩略语上（对使用辅助技术的用户也可见）, 但需要包含 title 属性。
+    </p>
+    <div class="preview-ctrl">
+      <div class="form-group">
+        <label for="exampleInputEmail1">你住在哪里？</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="">
+      </div>
+      <div class="form-group">
+        <label>你叫什么名字?</label><br/>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+        </label>
+      </div>
+      <div class="form-group">
+        <label>你叫什么名字?</label><br/>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+        </label>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

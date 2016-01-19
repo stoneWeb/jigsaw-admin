@@ -1,9 +1,13 @@
 <div class="panel panel-default">
-    <div class="panel-heading"><i class="ion ion-android-clipboard"></i>text Input</div>
+    <div class="panel-heading">
+      <i class="ion ion-android-clipboard"></i>
+      text Input
+      <a href="javascript:;" class="panel-close" ng-click="removeData()"><i class="ion ion-ios-close-outline"></i></a>
+    </div>
     <div class="panel-body form-inline">
       <div class="form-group ctrl-title">
-        <label for="ctrl-title">Title</label>
-        <input type="text" class="form-control" id="ctrl-title" placeholder="Title">
+        <label>Title</label>
+        <input type="text" class="form-control" ng-model="item.title" placeholder="Title">
       </div>
     </div>
 </div>
