@@ -1,2 +1,2 @@
 'use strict';
-import './directives/inputComponents';
+import './directives/textInput';
