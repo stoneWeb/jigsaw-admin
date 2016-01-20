@@ -16,6 +16,9 @@ import './module/controllers';
 // import directives
 import './module/directives';
 
+// import service
+import './module/services';
+
 let {
   router,
   routerCfg
@@ -24,6 +27,7 @@ let {
 let app = angular.module('app', [
   ui_router,
   ui_bootstrap,
+  'App.services',
   'App.directives',
   'App.controllers'
 ])

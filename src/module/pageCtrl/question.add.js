@@ -1,25 +1,9 @@
 'use strict';
 
-let defTplData = {
-  "textInput": {
-    type: 'textInput',
-    title: ''
-  },
-  "radio": {
-    type: 'radio',
-    title: '',
-    options: ['']
-  },
-  "multi": {
-    type: 'multi',
-    title: '',
-    options: ['']
-  }
-};
 let previewTpl = require('../../tpl/question_preview.html');
 
 export default class QuesAddCtrl {
-  constructor($scope, $uibModal) {
+  constructor($scope, $uibModal, Cfg) {
     $scope.title = '';
     $scope.description = '';
     $scope.data = [];
@@ -40,7 +24,7 @@ export default class QuesAddCtrl {
     ];
     $scope.type = $scope.typeoptions[0];
     $scope.addItem = () => {
-      $scope.data.push(angular.copy(defTplData[$scope.type.value]));
+      $scope.data.push(angular.copy(Cfg.components[$scope.type.value]));
     }
     $scope.$on('removeData', (e, d) => {
       $scope.data.splice(d, 1);
