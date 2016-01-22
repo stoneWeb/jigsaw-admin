@@ -33,7 +33,7 @@ let app = angular.module('app', [
 ])
 .run(($rootScope, $location, $sce) => {
   $rootScope.crumbs = () => {
-    let path = $location.path();
+    let path = $location.path().replace(/\/\d+$/, '');
     if(routerCfg[path]){
       let crmbs = routerCfg[path].crumbs;
       let html = [];
@@ -45,7 +45,7 @@ let app = angular.module('app', [
     return ''
   };
   $rootScope.isActive = (path) => {
-    return path === $location.path();
+    return path === $location.path().split('/').slice(0, 2).join('/');
   }
 })
 .config(router);
