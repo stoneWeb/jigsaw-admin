@@ -20,6 +20,13 @@ let routerCfg = {
     template: require('../tpl/questions.add.html'),
     controller: 'QuesAddCtrl'
   },
+  '/questions/edit': {
+    crumbs: ['<a href="#/questions">Questions</a>', 'Edit'],
+    state: 'admin.questions_edit',
+    url: 'questions/edit/:id',
+    template: require('../tpl/questions.edit.html'),
+    controller: 'QuesEditCtrl'
+  },
   '/users': {
     crumbs: ['Users'],
     state: 'admin.users',

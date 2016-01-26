@@ -7,6 +7,7 @@ import LoginCtrl from './pageCtrl/login';
 import MenuCtrl from './pageCtrl/menu';
 import QuesCtrl from './pageCtrl/question';
 import QuesAddCtrl from './pageCtrl/question.add';
+import QuesEditCtrl from './pageCtrl/question.edit';
 import TasksCtrl from './pageCtrl/task';
 import UsersCtrl from './pageCtrl/user';
 import ModalCtrl from './pageCtrl/modalctrl';
@@ -18,6 +19,7 @@ angular.module('App.controllers', [ng_chart.name])
 .controller('UsersCtrl', UsersCtrl)
 .controller('QuesCtrl', QuesCtrl)
 .controller('QuesAddCtrl', QuesAddCtrl)
+.controller('QuesEditCtrl', QuesEditCtrl)
 .controller('TasksCtrl', TasksCtrl)
 .controller('MenuCtrl', MenuCtrl)
 .controller('DashCtrl', DashCtrl);

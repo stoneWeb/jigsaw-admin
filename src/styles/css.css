@@ -314,3 +314,10 @@ a:hover, a:focus {
 .preview-ctrl{
 	margin-top: 30px;
 }
+.preview-ctrl .radio-inline, .preview-ctrl .checkbox-inline{
+	margin-right: 15px;
+}
+.preview-ctrl .radio-inline + .radio-inline, .preview-ctrl .checkbox-inline + .checkbox-inline{
+	margin-left: 0;
+	margin-right: 15px;
+}

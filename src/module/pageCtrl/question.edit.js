@@ -2,12 +2,11 @@
 
 let previewTpl = require('../../tpl/question_preview.html');
 
-export default class QuesAddCtrl {
-  constructor($scope, $uibModal, Cfg) {
+export default class QuesEditCtrl {
+  constructor($scope, $uibModal, $stateParams, Cfg) {
     $scope.title = '';
     $scope.description = '';
     $scope.data = [];
-
     $scope.typeoptions = [
       {
         name: 'text Input',

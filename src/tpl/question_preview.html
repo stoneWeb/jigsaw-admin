@@ -6,18 +6,18 @@
     {{data.description}}
   </p>
   <div class="preview-ctrl">
-    <div class="form-group" ng-repeat="item in data.items track by $index">
+    <div class="form-group" ng-repeat="item in data.items track by $index" ng-init="i = $index">
       <div>
         <label>{{item.title}}</label><br/>
         <input ng-if='item.type == "textInput"' type="email" class="form-control" placeholder="{{item.title}}">
         <div ng-if='item.type == "radio"'>
           <label class="radio-inline" ng-repeat="e in item.options">
-            <input type="radio" name="preview" value=""> {{e}}
+            <input type="radio" name='{{"preview" + i}}' value="">{{e}}
           </label>
         </div>
         <div ng-if='item.type == "multi"'>
           <label class="checkbox-inline" ng-repeat="e in item.options">
-            <input type="checkbox" value=""> {{e}}
+            <input type="checkbox" value="">{{e}}
           </label>
         </div>
       </div>
