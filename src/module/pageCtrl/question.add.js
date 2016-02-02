@@ -1,9 +1,7 @@
 'use strict';
 
-let previewTpl = require('../../tpl/question_preview.html');
-
 export default class QuesAddCtrl {
-  constructor($scope, $uibModal, Cfg) {
+  constructor($scope, Util, Cfg) {
     $scope.title = '';
     $scope.description = '';
     $scope.data = [];
@@ -20,6 +18,10 @@ export default class QuesAddCtrl {
       {
         name: 'multi',
         value: 'multi'
+      },
+      {
+        name: 'image',
+        value: 'image'
       }
     ];
     $scope.type = $scope.typeoptions[0];
@@ -32,20 +34,10 @@ export default class QuesAddCtrl {
       $scope.data.splice(d, 1);
     });
     $scope.preview = () => {
-      var modalInstance = $uibModal.open({
-        animation: true,
-        template: previewTpl,
-        controller: 'ModalCtrl',
-        size: 'sm',
-        resolve: {
-          data(){
-            return {
-              title: $scope.title,
-              description: $scope.description,
-              items: $scope.data
-            };
-          }
-        }
+      var modalInstance = Util.openQuestionModal({
+        title: $scope.title,
+        description: $scope.description,
+        items: $scope.data
       });
     }
     $scope.reset = () => {

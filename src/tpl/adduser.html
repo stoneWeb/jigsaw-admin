@@ -1,0 +1,57 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add User</h3>
+</div>
+
+<div class="modal-body">
+  <div class="form-horizontal form-adduser">
+    <div class="form-group">
+      <label for="addu_name" class="addu_label">Name</label>
+      <input type="text" ng-model="f.name" class="form-control" id="addu_name" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label for="addu_email" class="addu_label">Email</label>
+      <input type="email" ng-model="f.email" class="form-control" id="addu_email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label class="addu_label">Group</label>
+      <div class="radio">
+        <label>
+          <input type="radio" ng-model="f.gender" value="male" name="addu_gender"> male
+        </label>
+        <label>
+          <input type="radio" ng-model="f.gender" value="female" name="addu_gender"> female
+        </label>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="addu_age" class="addu_label">Age</label>
+      <input type="text" ng-model="f.age" class="form-control" id="addu_age" placeholder="Age">
+    </div>
+    <div class="form-group">
+      <label for="addu_job" class="addu_label">Job</label>
+      <input type="text" ng-model="f.job" class="form-control" id="addu_job" placeholder="job">
+    </div>
+    <div class="form-group">
+      <label for="addu_mos" class="addu_label">Mobule OS</label>
+      <input type="text" ng-model="f.mobileos" class="form-control" id="addu_mos" placeholder="Mobile OS">
+    </div>
+    <div class="form-group">
+      <label for="addu_mob" class="addu_label">Mobile brand</label>
+      <input type="text" ng-model="f.mobilebd" class="form-control" id="addu_mob" placeholder="Mobile brand">
+    </div>
+    <div class="form-group">
+      <label for="addu_pco" class="addu_label">PC OS</label>
+      <input type="text" ng-model="f.pcos" class="form-control" id="addu_pco" placeholder="PC OS">
+    </div>
+    <div class="form-group">
+      <label for="addu_lop" class="addu_label">Location</label>
+      <input type="text" ng-model="f.location" class="form-control" id="addu_lop" placeholder="Location">
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+</div>

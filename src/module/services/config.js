@@ -3,7 +3,7 @@
 export default class Congfig {
   constructor(){
     this.host = 'http://localhost:8080';
-    
+
     this.components = {
       "textInput": {
         type: 'textInput',
@@ -18,6 +18,11 @@ export default class Congfig {
         type: 'multi',
         title: '',
         options: ['']
+      },
+      "image": {
+        type: 'image',
+        title: '',
+        length: 1
       }
     };
 
