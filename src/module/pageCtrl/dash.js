@@ -1,6 +1,6 @@
 'use strict';
 export default class DashCtrl {
-  constructor($scope) {
+  constructor($scope, Util) {
       $scope.labels2 = ["January", "February", "March", "April", "May", "June", "July"];
       $scope.series = ['Series A', 'Series B'];
       $scope.data2 = [
@@ -16,5 +16,9 @@ export default class DashCtrl {
         [65, 59, 90, 81, 56, 55, 40],
         [28, 48, 40, 19, 96, 27, 100]
       ];
+
+      $scope.addUser = () => {
+          Util.openUserModal();
+      }
   }
 }
