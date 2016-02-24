@@ -40,7 +40,21 @@ let routerCfg = {
     url: 'tasks',
     template: require('../tpl/tasks.html'),
     controller: 'TasksCtrl'
-  }
+  },
+  '/tasks/add': {
+    crumbs: ['<a href="#/tasks">Tasks</a>', 'Add'],
+    state: 'admin.tasks_add',
+    url: 'tasks/add',
+    template: require('../tpl/tasks.add.html'),
+    controller: 'TasksAddCtrl'
+  },
+  '/tasks/edit': {
+    crumbs: ['<a href="#/tasks">Tasks</a>', 'Edit'],
+    state: 'admin.tasks_edit',
+    url: 'tasks/edit/:id',
+    template: require('../tpl/tasks.edit.html'),
+    controller: 'TasksEditCtrl'
+  },
 }
 
 let router = ($urlRouterProvider, $stateProvider, $locationProvider) => {
