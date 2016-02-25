@@ -34,7 +34,7 @@ export default class QuesAddCtrl {
       $scope.data.splice(d, 1);
     });
     $scope.preview = () => {
-      var modalInstance = Util.openQuestionModal({
+      Util.openQuestionModal({
         title: $scope.title,
         description: $scope.description,
         items: $scope.data
