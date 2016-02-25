@@ -363,3 +363,49 @@ a:hover, a:focus {
 	padding-right: 10px;
 }
 */
+.user-s{
+	display: table;
+	width: 100%;
+}
+.user-s-tr{
+	cursor: pointer;
+	display: table-row;
+}
+.user-s-tr span{
+	display: table-cell;
+	padding: 5px;
+	border-bottom: 1px solid #eee
+}
+.user-s-tr:hover span{
+	background-color: #f5f5f5
+}
+.user-s-tr .active{
+	color: #5cb85c
+}
+.user-s-sel{
+	width: 40px;
+	color: #666;
+	font-size: 17px;
+	text-align: center;
+}
+.user-s-tit{
+	font-size: 12px;
+}
+.user-s-seled{
+	padding: 5px;
+	border: 1px dashed #ddd;
+	box-shadow: 0 1px 8px rgba(0,0,0,.1)
+}
+.user-swrap{
+	margin-top: 15px;
+	max-height: 230px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	border-bottom: 0 none;
+	box-shadow: 0 1px 8px rgba(0,0,0,.2)
+}
+.user-s-seled span{
+	cursor: pointer;
+	margin: 5px 0 0 5px;
+}
