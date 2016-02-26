@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Base Information</div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label>Question Title</label>
+        <input type="text" ng-model="title" class="form-control" placeholder="Title">
+        <br/>
+        <label>Question description</label>
+        <textarea ng-model="description" class="form-control" rows="3" placeholder="description..."></textarea>
+      </div>
+    </div>
+</div>
+<div class="filter filter-qadd">
+  <select class="form-control" ng-model="type" ng-options="m.name for m in typeoptions">
+  </select>
+  <a href="javascript:;" ng-click="addItem()" class="btn btn-success"><i class="ion ion-plus-circled"></i>Add Component</a>
+</div>
+
+<div ng-repeat="item in data track by $index">
+  <textinput ng-if='item.type == "textInput"' item="item" index="{{$index}}"></textinput>
+  <radio ng-if='item.type == "radio"' item="item" index="{{$index}}"></radio>
+  <multi ng-if='item.type == "multi"' item="item" index="{{$index}}"></multi>
+  <images ng-if='item.type == "image"' item="item" index="{{$index}}"></images>
+</div>
+
+
+<p class="question-btn">
+  <button type="button" class="btn btn-primary" ng-click="preview()">Preview</button>
+  <button type="button" class="btn btn-success">Release</button>
+  <button type="button" class="btn btn-danger" ng-click="reset()">Reset</button>
+</p>

@@ -47,5 +47,6 @@ let app = angular.module('app', [
   $rootScope.isActive = (path) => {
     return path === $location.path().split('/').slice(0, 2).join('/');
   }
+  // 检测Token
 })
 .config(router);

@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Base Information</div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label>Task Title</label>
+        <input type="text" ng-model="title" class="form-control" placeholder="Title">
+        <br/>
+        <label>Select Question</label>
+        <select class="form-control" ng-model="quest" ng-options="m.title for m in questions"></select>
+        <br/>
+        <label>Select Users</label>
+        <h5 class="user-s-tit">selected:</h5>
+        <div class="user-s-seled">
+          <span class="label label-success" ng-repeat="item in users track by $index" ng-click="selected($index)" ng-if="item.checked" uib-tooltip="{{item.email}}">{{item.name}}</span>
+        </div>
+        <div class="user-swrap">
+          <div class="user-s">
+            <div class="user-s-tr" ng-repeat="item in users track by $index" ng-click="selected($index)">
+              <span ng-class="{'user-s-sel': true, active: item.checked}"><i class="ion ion-checkmark"></i></span>
+              <span>{{item.name}}</span>
+              <span>{{item.email}}</span>
+              <span>{{item.location}}</span>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <br/>
+        <label>Duration</label>
+        <div class="input-group">
+          <input type="text" class="form-control" ng-model="d.duration" uib-datepicker-popup="yyyy/MM/dd" min-date="d.minDate" alt-input-formats="d.altFormats" is-open="d.isOpen" datepicker-options="d.options">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="d.open()"><i class="ion ion-ios-calendar-outline"></i></button>
+          </span>
+        </div>
+        <uib-timepicker ng-model="d.time" hour-step="1" minute-step="15" show-meridian="d.ismeridian"></uib-timepicker>
+      </div>
+    </div>
+</div>
+<p class="question-btn">
+  <button type="button" class="btn btn-success">Release</button>
+</p>

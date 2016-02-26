@@ -1,1 +1,32 @@
-tasks....
+<div class="filter">
+  <a href="javascript:;" class="filter-del btn btn-danger">Selected Delete</a>
+  <a ui-sref="admin.tasks_add" class="filter-add btn btn-success">Add Task</a>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search for...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button">Go!</button>
+    </span>
+  </div>
+</div>
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th><input type="checkbox" ng-click="ckAll($event)"></th>
+      <th>Title</th>
+      <th>users</th>
+      <th>question</th>
+      <th>reminder</th>
+      <th>duration</th>
+      <th>Handle</th>
+    </tr>
+  </thead>
+  <tr ng-repeat="item in list track by $index">
+    <td><input type="checkbox" ng-model="item.checked"></td>
+    <td>{{item.title}}</td>
+    <td>{{item.usersLength}}</td>
+    <td>{{item.question}}</td>
+    <td>{{item.reminder}}</td>
+    <td>{{item.duration}}</td>
+    <td><a href="javascript:;" class="table-handle-icon" uib-tooltip="Edit Task"><i class="ion ion-edit"></i></a><a href="javascript:;" class="table-handle-icon" uib-tooltip="Delete Task"><i class="ion ion-android-delete"></i></a></td>
+  </tr>
+</table>
