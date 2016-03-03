@@ -54,6 +54,8 @@ let app = angular.module('app', [
       $location.path('/login');
   })
   // 检测Token
-  Rest.refreshToken();
+  Rest.refreshToken((user) => {
+      $rootScope.user = user
+  });
 })
 .config(router);
