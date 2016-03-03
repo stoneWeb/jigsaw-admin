@@ -25,6 +25,12 @@ export default class Congfig {
         length: 1
       }
     };
-
+    this.API = {
+      'host'    : 'http://localhost:8888',
+      'token'   : '/api/v1/token',
+      'user'    : '/api/v1/users',
+      'question': '/api/v1/questions',
+      'task'    : '/api/v1/tasks'
+    }
   }
 }

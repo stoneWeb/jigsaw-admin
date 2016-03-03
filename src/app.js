@@ -7,6 +7,7 @@ import './styles/ionicons.min.css';
 // import lib
 import angular from 'angular';
 import ui_router from 'angular-ui-router';
+import ng_resource from 'angular-resource';
 import r from './module/router';
 import ui_bootstrap from 'angular-ui-bootstrap';
 
@@ -27,11 +28,12 @@ let {
 let app = angular.module('app', [
   ui_router,
   ui_bootstrap,
+  ng_resource,
   'App.services',
   'App.directives',
   'App.controllers'
 ])
-.run(($rootScope, $location, $sce) => {
+.run(($rootScope, $location, $sce, Storage, Rest) => {
   $rootScope.crumbs = () => {
     let path = $location.path().replace(/\/\d+$/, '');
     if(routerCfg[path]){
@@ -47,6 +49,11 @@ let app = angular.module('app', [
   $rootScope.isActive = (path) => {
     return path === $location.path().split('/').slice(0, 2).join('/');
   }
+  $rootScope.$on('refreshTokenError', () => {
+      console.log('token Expire！');
+      $location.path('/login');
+  })
   // 检测Token
+  Rest.refreshToken();
 })
 .config(router);
