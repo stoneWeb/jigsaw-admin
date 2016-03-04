@@ -13,13 +13,17 @@
       <input type="email" ng-model="f.email" class="form-control" id="addu_email" placeholder="Email">
     </div>
     <div class="form-group">
+      <label for="addu_pass" class="addu_label">Password</label>
+      <input type="password" ng-model="f.password" class="form-control" id="addu_pass" placeholder="Password">
+    </div>
+    <div class="form-group">
       <label class="addu_label">Group</label>
       <div class="radio">
         <label>
-          <input type="radio" ng-model="f.gender" value="male" name="addu_gender"> male
+          <input type="radio" ng-model="f.gender" value="1" name="addu_gender"> male
         </label>
         <label>
-          <input type="radio" ng-model="f.gender" value="female" name="addu_gender"> female
+          <input type="radio" ng-model="f.gender" value="2" name="addu_gender"> female
         </label>
       </div>
 
@@ -33,20 +37,28 @@
       <input type="text" ng-model="f.job" class="form-control" id="addu_job" placeholder="job">
     </div>
     <div class="form-group">
+      <label for="addu_edu" class="addu_label">Education</label>
+      <input type="text" ng-model="f.education" class="form-control" id="addu_edu" placeholder="Mobile OS">
+    </div>
+    <div class="form-group">
       <label for="addu_mos" class="addu_label">Mobule OS</label>
-      <input type="text" ng-model="f.mobileos" class="form-control" id="addu_mos" placeholder="Mobile OS">
+      <input type="text" ng-model="f.mobile_os" class="form-control" id="addu_mos" placeholder="Mobile OS">
     </div>
     <div class="form-group">
       <label for="addu_mob" class="addu_label">Mobile brand</label>
-      <input type="text" ng-model="f.mobilebd" class="form-control" id="addu_mob" placeholder="Mobile brand">
+      <input type="text" ng-model="f.mobile_brand" class="form-control" id="addu_mob" placeholder="Mobile brand">
     </div>
     <div class="form-group">
       <label for="addu_pco" class="addu_label">PC OS</label>
-      <input type="text" ng-model="f.pcos" class="form-control" id="addu_pco" placeholder="PC OS">
+      <input type="text" ng-model="f.pc_os" class="form-control" id="addu_pco" placeholder="PC OS">
     </div>
     <div class="form-group">
       <label for="addu_lop" class="addu_label">Location</label>
       <input type="text" ng-model="f.location" class="form-control" id="addu_lop" placeholder="Location">
+    </div>
+    <div class="form-group" ng-if="!isUpdate">
+      <label for="addu_vali" class="addu_label">Valid email?</label>
+      <input type="checkbox" ng-model="f.valid" class="form-control" id="addu_vali">
     </div>
   </div>
 </div>

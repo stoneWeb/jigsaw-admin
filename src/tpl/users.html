@@ -1,5 +1,4 @@
 <div class="filter">
-  <a href="javascript:;" class="filter-del btn btn-danger">Selected Delete</a>
   <a href="javascript:;" class="filter-add btn btn-success" ng-click="addUser()">Add User</a>
   <div class="input-group">
     <input type="text" class="form-control" placeholder="Search for...">
@@ -32,11 +31,11 @@
     <td>{{item.gender}}</td>
     <td>{{item.age}}</td>
     <td>{{item.job}}</td>
-    <td>{{item.mobileos}}</td>
-    <td>{{item.mobilebd}}</td>
-    <td>{{item.pcos}}</td>
-    <td><span class="label label-success">1 Task</span></td>
+    <td>{{item.mobile_os}}</td>
+    <td>{{item.mobile_brand}}</td>
+    <td>{{item.pc_os}}</td>
+    <td><span ng-class="{label: true, 'label-success': item.question.length > 0, 'label-default': item.question.length == 0}">{{item.question.length}} Task</span></td>
     <td>{{item.location}}</td>
-    <td><a href="javascript:;" class="table-handle-icon" uib-tooltip="Edit User"><i class="ion ion-edit"></i></a><a href="javascript:;" class="table-handle-icon" uib-tooltip="Delete User"><i class="ion ion-android-delete"></i></a></td>
+    <td><a href="javascript:;" class="table-handle-icon" ng-click="editUser($index)" uib-tooltip="Edit User"><i class="ion ion-edit"></i></a><a href="javascript:;" class="table-handle-icon" ng-click="removeUser($index)" uib-tooltip="Delete User"><i class="ion ion-android-delete"></i></a></td>
   </tr>
 </table>
