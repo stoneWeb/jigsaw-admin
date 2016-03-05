@@ -1,8 +1,7 @@
 <div class="filter">
-  <a href="javascript:;" class="filter-del btn btn-danger">Selected Delete</a>
   <a ui-sref="admin.questions_add" class="filter-add btn btn-success">Add Questions</a>
   <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search for...">
+    <input type="text" class="form-control" ng-model="query" placeholder="Search for...">
     <span class="input-group-btn">
       <button class="btn btn-default" type="button">Go!</button>
     </span>
@@ -13,32 +12,18 @@
     <tr>
       <th class="col-md-1"><input type="checkbox"></th>
       <th>Title</th>
+      <th>Description</th>
       <th class="col-md-3">Handle</th>
     </tr>
   </thead>
-  <tr>
+  <tr ng-repeat="item in list | filter:query track by $index">
     <td><input type="checkbox"></td>
-    <td>this is title...</td>
+    <td>{{item.title}}</td>
+    <td>{{item.description}}</td>
     <td>
-      <a href="#/questions/edit/1" class="table-handle-icon" uib-tooltip="Edit Question"><i class="ion ion-edit"></i></a>
-      <a href="javascript:;" class="table-handle-icon" uib-tooltip="preview Question" ng-click="preview()"><i class="ion ion-eye"></i></a>
-      <a href="javascript:;" class="table-handle-icon" uib-tooltip="Delete Question"><i class="ion ion-android-delete"></i></a>
+      <a href="#/questions/edit/{{item.sid}}" class="table-handle-icon" uib-tooltip="Edit Question"><i class="ion ion-edit"></i></a>
+      <a href="javascript:;" class="table-handle-icon" uib-tooltip="preview Question" ng-click="preview($index)"><i class="ion ion-eye"></i></a>
+      <a href="javascript:;" class="table-handle-icon" uib-tooltip="Delete Question" ng-click="remove($index)"><i class="ion ion-android-delete"></i></a>
     </td>
   </tr>
-  <tr>
-    <td><input type="checkbox"></td>
-    <td>this is title...</td>
-    <td>
-      <a href="javascript:;" class="table-handle-icon" uib-tooltip="Edit Question"><i class="ion ion-edit"></i></a>
-      <a href="javascript:;" class="table-handle-icon" uib-tooltip="preview Question"><i class="ion ion-eye"></i></a>
-      <a href="javascript:;" class="table-handle-icon" uib-tooltip="Delete Question"><i class="ion ion-android-delete"></i></a>
-    </td>
-  </tr>
-  <tfoot>
-    <tr>
-      <th><input type="checkbox"></th>
-      <th>Title</th>
-      <th>Handle</th>
-    </tr>
-  </tfoot>
 </table>

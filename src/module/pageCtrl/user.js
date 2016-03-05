@@ -40,6 +40,7 @@ export default class UsersCtrl {
             var User = Rest.User();
             User.delete({uid: user.uid}).$promise.then(() => {
               alert('删除成功！');
+              $scope.list.splice(index, 1);
             }, () => { alert('删除失败！') })
         }
     }

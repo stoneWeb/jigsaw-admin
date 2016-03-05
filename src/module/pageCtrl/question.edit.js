@@ -1,10 +1,12 @@
 'use strict';
 
 export default class QuesEditCtrl {
-  constructor($scope, Util, $stateParams, Cfg) {
-    $scope.title = '';
-    $scope.description = '';
-    $scope.data = [];
+  constructor($scope, $location, Util, $stateParams, Cfg, Rest) {
+    if($stateParams.id * 1 != $stateParams.id){
+        $location.path('/question');
+        return
+    }
+
     $scope.typeoptions = [
       {
         name: 'text Input',
@@ -24,25 +26,33 @@ export default class QuesEditCtrl {
       }
     ];
     $scope.type = $scope.typeoptions[0];
-    $scope.addItem = () => {
-      $scope.data.push(
-        angular.copy(Cfg.components[$scope.type.value])
-      );
-    }
-    $scope.$on('removeData', (e, d) => {
-      $scope.data.splice(d, 1);
-    });
-    $scope.preview = () => {
-      Util.openQuestionModal({
-        title: $scope.title,
-        description: $scope.description,
-        items: $scope.data
-      });
-    }
-    $scope.reset = () => {
+    let addItem = () => {
+        $scope.question.push(
+          angular.copy(Cfg.components[$scope.type.value])
+        );
+    },
+    preview = () => {
+        Util.openQuestionModal({
+          title: $scope.title,
+          description: $scope.description,
+          question: $scope.question
+        });
+    },
+    reset = () => {
       $scope.title = '';
       $scope.description = '';
-      $scope.data = [];
+      $scope.question = [];
     }
+    $scope.$on('removeData', (e, d) => {
+      $scope.question.splice(d, 1);
+    });
+
+    let Question = Rest.Question();
+    Question.get({sid: $stateParams.id*1}).$promise.then((d) => {
+        Object.assign($scope, d.data);
+        $scope.addItem = addItem;
+        $scope.preview = preview;
+        $scope.reset = reset;
+    }, () => { alert('获取数据失败！'); })
   }
 }
