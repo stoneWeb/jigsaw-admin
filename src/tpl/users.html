@@ -1,7 +1,7 @@
 <div class="filter">
   <a href="javascript:;" class="filter-add btn btn-success" ng-click="addUser()">Add User</a>
   <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search for...">
+    <input type="text" class="form-control" ng-model="query" placeholder="Search for...">
     <span class="input-group-btn">
       <button class="btn btn-default" type="button">Go!</button>
     </span>
@@ -24,7 +24,7 @@
       <th>Handle</th>
     </tr>
   </thead>
-  <tr ng-repeat="item in list track by $index">
+  <tr ng-repeat="item in list | filter:query track by $index">
     <td><input type="checkbox" ng-model="item.checked"></td>
     <td>{{item.name}}</td>
     <td><a href="mailto:{{item.email}}">{{item.email}}</a></td>

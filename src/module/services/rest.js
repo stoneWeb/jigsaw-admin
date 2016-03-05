@@ -3,21 +3,25 @@
 export default class Rest {
     constructor($resource, $http, $rootScope, Cfg, Storage){
       var host = Cfg.API['host'];
-      var tokenInterval;
+      var tokenInterval,
+          methods = {
+              'update': 'PUT',
+              'query' : 'GET',
+              'get'   : 'GET',
+              'save'  : 'POST',
+              'delete': 'DELETE'
+          }
       var creatResource = (api) => {
         var token = Storage.get('token');
 
         var header = {};
         ['query', 'get', 'save', 'update', 'delete'].forEach((action) => {
             header[action] = {
+              method: methods[action],
               headers: {
                   'Authorization': 'Basic ' + btoa(token+':Lei')
               }
             }
-            if(action == 'update'){
-              header[action].method = 'PUT'
-            }
-            return header
         });
 
         var params = {
@@ -56,6 +60,7 @@ export default class Rest {
                 if(d.Success == 1){
                   Storage.set('token', d.token);
                   tokenInterval = setTimeout(refreshToken, d.duration*1000 - 10000);
+                  cb && cb(d.user);
                   return;
                 }
                 $rootScope.$emit('refreshTokenError');
