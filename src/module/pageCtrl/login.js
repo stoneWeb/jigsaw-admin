@@ -13,8 +13,8 @@ export default class LoginCtrl {
               (d) => {
                   $rootScope.user = d.user;
                   Storage.set('token', d.token);
-                  $location.path('/dashboard');
                   setTimeout(Rest.refreshToken, d.duration*1000 - 10000);
+                  $location.path('/dashboard');
               },
               () => {
                   console.log('login error');
