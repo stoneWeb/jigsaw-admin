@@ -20,12 +20,12 @@
   <textinput ng-if='item.type == "textInput"' item="item" index="{{$index}}"></textinput>
   <radio ng-if='item.type == "radio"' item="item" index="{{$index}}"></radio>
   <multi ng-if='item.type == "multi"' item="item" index="{{$index}}"></multi>
-  <image ng-if='item.type == "image"' item="item" index="{{$index}}"></image>
+  <images ng-if='item.type == "image"' item="item" index="{{$index}}"></images>
 </div>
 
 
 <p class="question-btn">
   <button type="button" class="btn btn-primary" ng-click="preview()">Preview</button>
-  <button type="button" class="btn btn-success">Release</button>
+  <button type="button" class="btn btn-success" ng-click="submit()">Update</button>
   <button type="button" class="btn btn-danger" ng-click="reset()">Reset</button>
 </p>
