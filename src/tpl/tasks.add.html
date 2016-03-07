@@ -25,17 +25,46 @@
         </div>
         <br/>
         <br/>
-        <label>Duration</label>
-        <div class="input-group">
-          <input type="text" class="form-control" ng-model="d.duration" uib-datepicker-popup="yyyy/MM/dd" min-date="d.minDate" alt-input-formats="d.altFormats" is-open="d.isOpen" datepicker-options="d.options">
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="d.open()"><i class="ion ion-ios-calendar-outline"></i></button>
-          </span>
+        <label>Reminder</label>
+        <div class="form-inline set-reminder">
+          <div class="form-group">
+              <label for="">days</label>
+              <input type="number" ng-model="t2.day" class="form-control" min="1">
+              <label for="">time</label>
+              <div class="time-ctrl">
+                <uib-timepicker ng-model="t2.time" arrowkeys="false" show-meridian="t2.ismeridian"></uib-timepicker>
+              </div>
+          </div>
         </div>
-        <uib-timepicker ng-model="d.time" hour-step="1" minute-step="15" show-meridian="d.ismeridian"></uib-timepicker>
+        <br/>
+        <br/>
+        <label>Duration</label>
+        <div class="form-inline set-duration">
+          <div class="form-group">
+            <label for="">start date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="d.date" uib-datepicker-popup="yyyy/MM/dd" min-date="d.minDate" alt-input-formats="d.altFormats" is-open="d.isOpen" datepicker-options="d.options">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="d.open()"><i class="ion ion-ios-calendar-outline"></i></button>
+              </span>
+            </div>
+            <label for=""> end date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="b.date" uib-datepicker-popup="yyyy/MM/dd" min-date="b.minDate" alt-input-formats="b.altFormats" is-open="b.isOpen" datepicker-options="b.options">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="b.open()"><i class="ion ion-ios-calendar-outline"></i></button>
+              </span>
+            </div>
+            <label for=""> time</label>
+            <div class="time-ctrl">
+              <uib-timepicker ng-model="t1.time" arrowkeys="false" show-meridian="t1.ismeridian"></uib-timepicker>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 </div>
 <p class="question-btn">
-  <button type="button" class="btn btn-success">Release</button>
+  <button type="button" ng-click="submit()" class="btn btn-success">Release</button>
 </p>
