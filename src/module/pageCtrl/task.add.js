@@ -10,7 +10,7 @@ export default class TasksAddCtrl {
           User.query({}).$promise,
           Question.query({}).$promise
       ]).then((response) => {
-          $scope.users = response[0].data;
+          $scope.users = response[0].data.filter((item) => !item.question.length);
           $scope.questions = response[1].data;
           $scope.quest = $scope.questions[0];
           $scope.submit = submit;
@@ -28,10 +28,6 @@ export default class TasksAddCtrl {
           $scope.d.isOpen = true;
         }
       }
-      $scope.t1 = {
-         time: new Date(),
-         ismeridian: false
-      }
       $scope.t2 = {
          time: new Date(),
          ismeridian: false,
@@ -46,7 +42,34 @@ export default class TasksAddCtrl {
         }
       }
       var submit = () => {
-          
+          if(!$scope.t2.time
+            || !$scope.t2.day
+            || !$scope.d.date
+            || !$scope.b.date){
+              alert('请选择持续时间和提醒时间！');
+            return
+          }
+
+          var fields = {
+            title: $scope.title.trim(),
+            question: $scope.quest.sid,
+            users: $scope.users.filter((item) => item.checked).map((item) => item.uid),
+            startDate: $scope.d.date.getTime(),
+            endDate: $scope.b.date.getTime(),
+            reminder: $scope.t2.day + '|' + $scope.t2.time.getHours()+':'+$scope.t2.time.getMinutes()
+          }
+          if(fields.endDate - fields.startDate < 86400000){
+            alert('结束时间要大于起始时间');
+            return
+          }
+          if(!fields.title || !fields.users.length){
+            alert('请填写完整');
+            return
+          }
+          let Task = Rest.Task();
+          Task.save(fields).$promise.then((response) => {
+              console.log(response);
+          }, () => { alert('发布失败') })
       }
   }
 }
