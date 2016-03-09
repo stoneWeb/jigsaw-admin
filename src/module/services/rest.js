@@ -1,7 +1,7 @@
 'use strict';
 
 export default class Rest {
-    constructor($resource, $http, $rootScope, Cfg, Storage){
+    constructor($resource, $http, $rootScope, $location, Cfg, Storage){
       var host = Cfg.API['host'];
       var tokenInterval,
           methods = {
@@ -48,7 +48,11 @@ export default class Rest {
                     })
                 }
       }
-      var refreshToken = () => {
+      this.stopRefreshToken = () => {
+          clearTimeout(tokenInterval)
+      }
+      var _this = this;
+      var refreshToken = (cb) => {
           let token = Storage.get('token');
           $http({
               url: host+Cfg.API['token'],
@@ -57,16 +61,20 @@ export default class Rest {
               }
           }).then(
             (d) => {
-                if(d.Success == 1){
-                  Storage.set('token', d.token);
-                  tokenInterval = setTimeout(refreshToken, d.duration*1000 - 10000);
-                  cb && cb(d.user);
-                  return;
+                d = d.data;
+                if(d.user.uid != 1){
+                    $location.path('/login');
+                    return;
                 }
-                $rootScope.$emit('refreshTokenError');
+                _this.user = d.user;
+                Storage.set('token', d.token);
+                tokenInterval = setTimeout(refreshToken, d.duration*1000 - 10000);
+                cb && cb(d.user);
             },
-            () => {
-                $rootScope.$emit('refreshTokenError');
+            (res) => {
+                if(res.status == 401){
+                    $rootScope.$emit('refreshTokenError');
+                }
             }
           )
       }
