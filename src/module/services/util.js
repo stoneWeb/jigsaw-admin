@@ -30,4 +30,14 @@ export default class Util {
               }
             });
     }
+    formatDate(date){
+        return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate()
+    }
+    checkEmptyObject(obj){
+        if(typeof obj != 'object')
+            return false
+        for(var key in obj)
+            return true
+        return false
+    }
 }
