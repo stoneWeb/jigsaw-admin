@@ -1,7 +1,7 @@
 'use strict';
 
 export default class TasksAddCtrl {
-  constructor($scope, $q, Rest, Util, Cfg, uibDateParser) {
+  constructor($scope, $q, $location, Rest, uibDateParser) {
       $scope.title = '';
       $scope.questions = [];
       $scope.users = [];
@@ -68,7 +68,7 @@ export default class TasksAddCtrl {
           }
           let Task = Rest.Task();
           Task.save(fields).$promise.then((response) => {
-              console.log(response);
+              $location.path('/Tasks')
           }, () => { alert('发布失败') })
       }
   }

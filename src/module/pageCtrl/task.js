@@ -9,18 +9,8 @@ var findBySid = (d, sid) => {
 }
 
 export default class TasksCtrl {
-  constructor($scope, $q, Rest, Util) {
-    $scope.list = [
-      {
-        checked: false,
-        title: '第一个任务',
-        users: 15,
-        question: '第一个问卷',
-        reminder: 25,
-        startDate: '2016-08-08',
-        endDate: '2016-08-09'
-      }
-    ];
+  constructor($location, $scope, $q, Rest, Util) {
+    $scope.list = [];
     let Task = Rest.Task(), Question = Rest.Question();
     $q.all([
         Task.query().$promise,
