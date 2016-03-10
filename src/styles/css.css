@@ -87,6 +87,11 @@ a:hover, a:focus {
   top: 5px;
   font-size: 27px;
 }
+.logout{
+	position: absolute;
+	right: 15px;
+	line-height: 40px;
+}
 .breadcrumb > li > a{
   color: #27a9e3
 }
@@ -412,7 +417,7 @@ a:hover, a:focus {
 }
 .user-s-seled .label:empty{
 	display: inline;
-	padding-left: 25px; 
+	padding-left: 25px;
 }
 .form-inline .time-ctrl{
 	vertical-align: middle;

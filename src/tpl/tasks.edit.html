@@ -2,30 +2,65 @@
     <div class="panel-heading">Base Information</div>
     <div class="panel-body">
       <div class="form-group">
-        <label>Question Title</label>
+        <label>Task Title</label>
         <input type="text" ng-model="title" class="form-control" placeholder="Title">
         <br/>
-        <label>Question description</label>
-        <textarea ng-model="description" class="form-control" rows="3" placeholder="description..."></textarea>
+        <label>Select Question</label>
+        <select class="form-control" ng-model="quest" ng-options="m.title for m in questions"></select>
+        <br/>
+        <label>Select Users</label>
+        <h5 class="user-s-tit">selected:</h5>
+        <div class="user-s-seled">
+          <span class="label label-success" ng-repeat="item in users track by $index" ng-click="selected($index)" ng-if="item.checked" uib-tooltip="{{item.email}}">{{item.name}}</span>
+        </div>
+        <div class="user-swrap">
+          <div class="user-s">
+            <div class="user-s-tr" ng-repeat="item in users track by $index" ng-click="selected($index)">
+              <span ng-class="{'user-s-sel': true, active: item.checked}"><i class="ion ion-checkmark"></i></span>
+              <span>{{item.name}}</span>
+              <span>{{item.email}}</span>
+              <span>{{item.location}}</span>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <br/>
+        <label>Reminder</label>
+        <div class="form-inline set-reminder">
+          <div class="form-group">
+              <label for="">days</label>
+              <input type="number" ng-model="t2.day" class="form-control" min="1">
+              <label for="">time</label>
+              <div class="time-ctrl">
+                <uib-timepicker ng-model="t2.time" arrowkeys="false" show-meridian="t2.ismeridian"></uib-timepicker>
+              </div>
+          </div>
+        </div>
+        <br/>
+        <br/>
+        <label>Duration</label>
+        <div class="form-inline set-duration">
+          <div class="form-group">
+            <label for="">start date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="d.date" uib-datepicker-popup="yyyy/MM/dd" min-date="d.minDate" alt-input-formats="d.altFormats" is-open="d.isOpen" datepicker-options="d.options">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="d.open()"><i class="ion ion-ios-calendar-outline"></i></button>
+              </span>
+            </div>
+            <label for=""> end date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="b.date" uib-datepicker-popup="yyyy/MM/dd" min-date="b.minDate" alt-input-formats="b.altFormats" is-open="b.isOpen" datepicker-options="b.options">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="b.open()"><i class="ion ion-ios-calendar-outline"></i></button>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 </div>
-<div class="filter filter-qadd">
-  <select class="form-control" ng-model="type" ng-options="m.name for m in typeoptions">
-  </select>
-  <a href="javascript:;" ng-click="addItem()" class="btn btn-success"><i class="ion ion-plus-circled"></i>Add Component</a>
-</div>
-
-<div ng-repeat="item in data track by $index">
-  <textinput ng-if='item.type == "textInput"' item="item" index="{{$index}}"></textinput>
-  <radio ng-if='item.type == "radio"' item="item" index="{{$index}}"></radio>
-  <multi ng-if='item.type == "multi"' item="item" index="{{$index}}"></multi>
-  <images ng-if='item.type == "image"' item="item" index="{{$index}}"></images>
-</div>
-
-
 <p class="question-btn">
-  <button type="button" class="btn btn-primary" ng-click="preview()">Preview</button>
-  <button type="button" class="btn btn-success">Release</button>
-  <button type="button" class="btn btn-danger" ng-click="reset()">Reset</button>
+  <button type="button" ng-click="submit()" class="btn btn-success">Update</button>
 </p>
