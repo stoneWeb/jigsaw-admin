@@ -37,12 +37,12 @@ let app = angular.module('app', [
   $rootScope.crumbs = () => {
     let path = $location.path().replace(/\/\d+$/, '');
     if(routerCfg[path]){
-      let crmbs = routerCfg[path].crumbs;
-      let html = [];
-      for(let item of crmbs){
-        html.push(`<li>${item}</li>`);
-      }
-      return $sce.trustAsHtml(html.join(''));
+        let crmbs = routerCfg[path].crumbs;
+        let html = [];
+        for(let item of crmbs){
+          html.push(`<li>${item}</li>`);
+        }
+        return $sce.trustAsHtml(html.join(''));
     }
     return ''
   };
@@ -51,11 +51,13 @@ let app = angular.module('app', [
   }
   $rootScope.$on('refreshTokenError', () => {
       console.log('token Expire！');
+      Storage.remove('token');
+      Rest.user = null;
       $location.path('/login');
   })
   // 检测Token
   Rest.refreshToken((user) => {
-      $rootScope.user = user
+      //console.log(user);
   });
 })
 .config(router);
