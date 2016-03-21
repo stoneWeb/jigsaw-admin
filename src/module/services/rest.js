@@ -15,7 +15,7 @@ export default class Rest {
         var token = Storage.get('token');
 
         var header = {};
-        ['query', 'get', 'save', 'update', 'delete'].forEach((action) => {
+        Object.keys(methods).forEach((action) => {
             header[action] = {
               method: methods[action],
               headers: {
