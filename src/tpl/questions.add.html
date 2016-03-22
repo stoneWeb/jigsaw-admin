@@ -10,11 +10,6 @@
       </div>
     </div>
 </div>
-<div class="filter filter-qadd">
-  <select class="form-control" ng-model="type" ng-options="m.name for m in typeoptions">
-  </select>
-  <a href="javascript:;" ng-click="addItem()" class="btn btn-success"><i class="ion ion-plus-circled"></i>Add Component</a>
-</div>
 
 <div ng-repeat="item in data track by $index">
   <textinput ng-if='item.type == "textInput"' item="item" index="{{$index}}"></textinput>
@@ -23,6 +18,11 @@
   <images ng-if='item.type == "image"' item="item" index="{{$index}}"></images>
 </div>
 
+<div class="filter filter-qadd">
+  <select class="form-control" ng-model="type" ng-options="m.name for m in typeoptions">
+  </select>
+  <a href="javascript:;" ng-click="addItem()" class="btn btn-success"><i class="ion ion-plus-circled"></i>Add Component</a>
+</div>
 
 <p class="question-btn">
   <button type="button" class="btn btn-primary" ng-click="preview()">Preview</button>
