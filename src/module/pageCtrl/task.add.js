@@ -68,7 +68,8 @@ export default class TasksAddCtrl {
           }
           let Task = Rest.Task();
           Task.save(fields).$promise.then((response) => {
-              $location.path('/Tasks')
+			  alert('添加成功！');
+			  $location.path('/Tasks')
           }, () => { alert('发布失败') })
       }
   }
