@@ -118,7 +118,8 @@ export default class TasksEditCtrl {
         }
         let Task = Rest.Task();
         Task.update({sid: $stateParams.id}, fields).$promise.then((response) => {
-            $location.path('/Tasks')
+			alert('更新成功！');
+			$location.path('/Tasks')
         }, () => { alert('更新失败') })
     }
   }
