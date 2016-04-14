@@ -8,20 +8,20 @@ let routerCfg = {
   },
   '/questions': {
     state: 'admin.questions',
-    crumbs: ['Questions'],
+    crumbs: ['Study'],
     url: 'questions',
     template: require('../tpl/questions.html'),
     controller: 'QuesCtrl'
   },
   '/questions/add': {
-    crumbs: ['<a href="#/questions">Questions</a>', 'Add'],
+    crumbs: ['<a href="#/questions">Study</a>', 'Add'],
     state: 'admin.questions_add',
     url: 'questions/add',
     template: require('../tpl/questions.add.html'),
     controller: 'QuesAddCtrl'
   },
   '/questions/edit': {
-    crumbs: ['<a href="#/questions">Questions</a>', 'Edit'],
+    crumbs: ['<a href="#/questions">Study</a>', 'Edit'],
     state: 'admin.questions_edit',
     url: 'questions/edit/:id',
     template: require('../tpl/questions.edit.html'),

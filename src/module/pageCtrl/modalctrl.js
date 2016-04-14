@@ -13,18 +13,20 @@ export default class ModalCtrl {
     }else if(data.type == 'user'){
       data.callback = data.callback || function(){};
       var initd = {
-        name: '',
-        gender: '',
-        email: '',
-        password: '',
-        age: '',
-        job: '',
-        valid: false,
-        education: '',
-        mobile_os: '',
-        mobile_brand: '',
-        pc_os: '',
-        location: ''
+          name: '',
+          gender: '',
+          email: '',
+          password: '',
+          age: '',
+          job: '',
+          valid: false,
+          education: '',
+          industry: '',
+          marriage: '',
+          mobile_os: '',
+          mobile_brand: '',
+          pc_os: '',
+          location: ''
       }, copy, fields;
       if(data.user){
           $scope.isUpdate = true;
