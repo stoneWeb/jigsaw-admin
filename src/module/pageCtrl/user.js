@@ -19,6 +19,19 @@ export default class UsersCtrl {
         item.checked = e.target.checked
       }
     }
+
+    $scope.sendPush = (index) => {
+        Rest.sendNotification({
+          uid:[$scope.list[index].uid],
+          alert:"Fuck U!💦",
+          badge:5,
+          custom: {}
+        }).$promise.then(
+              (d) => {
+                  console.log(d);
+              }
+          )
+    }
     $scope.addUser = () => {
       Util.openUserModal({
         callback(data){
