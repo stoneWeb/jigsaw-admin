@@ -39,6 +39,20 @@ export default class Rest {
           }
       });
 
+      this.sendNotification = (data) => {
+          let token = Storage.get('token');
+          return {'$promise': $http({
+                      url: host+Cfg.API['push'],
+                      method: 'POST',
+                      headers: {
+                          'Authorization': 'Basic ' + btoa(token+':Lei'),
+                          'Content-Type': 'application/json'
+                      },
+                      data: JSON.stringify(data)
+                  })
+              }
+      }
+
       this.getToken = (user="", pass="") => {
           return {'$promise': $http({
                         url: host+Cfg.API['token'],
