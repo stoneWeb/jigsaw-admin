@@ -30,7 +30,8 @@ export default class Congfig {
       'token'   : '/api/v1/token',
       'user'    : '/api/v1/users',
       'question': '/api/v1/questions',
-      'task'    : '/api/v1/tasks'
+      'task'    : '/api/v1/tasks',
+      'push'    : '/api/v1/push'
     }
 
     this.setinfo = {
