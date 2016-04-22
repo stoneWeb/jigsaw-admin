@@ -1,7 +1,7 @@
 'use strict';
 
 export default class ModalCtrl {
-  constructor($scope, $uibModalInstance, Rest, data) {
+  constructor($scope, $uibModalInstance, Rest, data, Cfg) {
     if(data.type == 'question'){
         $scope.data = data;
         $scope.getArr = (num) => {
@@ -12,28 +12,21 @@ export default class ModalCtrl {
         }
     }else if(data.type == 'user'){
       data.callback = data.callback || function(){};
-      var initd = {
-          name: '',
-          gender: '',
-          email: '',
-          password: '',
-          age: '',
-          job: '',
-          valid: false,
-          education: '',
-          industry: '',
-          marriage: '',
-          mobile_os: '',
-          mobile_brand: '',
-          pc_os: '',
-          location: ''
-      }, copy, fields;
+      $scope.fms = Cfg.setinfo;
+      var initd = {}, copy, fields;
+      Object.keys(Cfg.setinfo).forEach((item) => {
+          if(Cfg.setinfo[item].type == "radio"){
+              initd[item] = Cfg.setinfo[item].data[0];
+          }else{
+              initd[item] = "";
+          }
+      });
+
       if(data.user){
           $scope.isUpdate = true;
           $scope.f =  angular.extend(initd, data.user);
           copy = angular.copy($scope.f);
       }else{
-          initd.gender = 1;
           $scope.f = initd
       }
 
@@ -56,6 +49,9 @@ export default class ModalCtrl {
       }
 
       $scope.ok = () => {
+        var email = document.querySelector("#addu_email").value;
+        $scope.f.email = email;
+        $scope.f.valid = true;
         if($scope.isUpdate){
             fields = {};
             let isChange;
@@ -84,6 +80,37 @@ export default class ModalCtrl {
         }
         // send f
         //$uibModalInstance.close()
+      }
+      $scope.cancel = () => {
+        $uibModalInstance.close()
+      }
+    }else if(data.type == "push"){
+      $scope.f = {
+          message: "",
+          badge: 1
+      }
+      $scope.ok = () => {
+        var msg = $scope.f.message.trim();
+        if(!msg){
+            alert("请填写要发送的消息！");
+            return
+        }
+        Rest.sendNotification({
+          uid: data.user,
+          alert: msg,
+          badge: $scope.f.badge,
+          custom: {}
+        }).$promise.then(
+              (d) => {
+                  alert("发送成功！");
+                  $uibModalInstance.close()
+              },
+              (d) => {
+                  alert("发送失败！");
+                  $uibModalInstance.close()
+              }
+          )
+
       }
       $scope.cancel = () => {
         $uibModalInstance.close()

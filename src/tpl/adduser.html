@@ -4,6 +4,19 @@
 
 <div class="modal-body">
   <div class="form-horizontal form-adduser">
+    <div class="form-group" ng-repeat="(key, val) in fms">
+      <div ng-if='val.type=="text"'>
+          <label for="addu_{{key}}" class="addu_label">{{val.title}}</label>
+          <input type="{{val.keyboardType}}" ng-model="f[key]" class="form-control" id="addu_{{key}}" placeholder="{{val.placeholder}}">
+      </div>
+      <div ng-if='val.type=="radio"'>
+          <label for="addu_{{key}}" class="addu_label">{{val.title}}</label>
+          <select class="form-control" ng-model="f[key]">
+            <option ng-repeat="option in val.data" value="{{option}}">{{option}}</option>
+          </select>
+      </div>
+    </div>
+    <!--
     <div class="form-group">
       <label for="addu_name" class="addu_label">Name</label>
       <input type="text" ng-model="f.name" class="form-control" id="addu_name" placeholder="Name">
@@ -60,6 +73,7 @@
       <label for="addu_vali" class="addu_label">Valid email?</label>
       <input type="checkbox" ng-model="f.valid" class="form-control" id="addu_vali">
     </div>
+  -->
   </div>
 </div>
 
