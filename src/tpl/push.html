@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h3 class="modal-title">Send Notification</h3>
+</div>
+
+<div class="modal-body">
+  <div class="form-horizontal form-adduser">
+    <div class="form-group">
+      <label for="addu_name" class="addu_label">message</label>
+      <input type="text" ng-model="f.message" class="form-control" id="p_message" placeholder="message">
+    </div>
+    <div class="form-group">
+      <label for="addu_email" class="addu_label">badge</label>
+      <input type="number" ng-model="f.badge" min="1" class="form-control" id="p_badge" placeholder="badge">
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+</div>
