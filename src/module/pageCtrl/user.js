@@ -20,17 +20,22 @@ export default class UsersCtrl {
       }
     }
 
-    $scope.sendPush = (index) => {
-        Rest.sendNotification({
-          uid:[$scope.list[index].uid],
-          alert:"Fuck U!💦",
-          badge:5,
-          custom: {}
-        }).$promise.then(
-              (d) => {
-                  console.log(d);
-              }
-          )
+    $scope.sendPush = () => {
+      let us = $scope.list.filter((item) => {
+          return item.checked
+      }).map((item) => {
+          return item.uid
+      });
+      if(us.length){
+          Util.openPush({
+            user: us,
+            callback(){
+
+            }
+          });
+      }else{
+        alert("请选择用户！")
+      }
     }
     $scope.addUser = () => {
       Util.openUserModal({
