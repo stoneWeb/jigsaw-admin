@@ -35,11 +35,23 @@ export default class Congfig {
     }
 
     this.setinfo = {
+      "email": {
+        "title": "邮箱",
+        "type": "text",
+        "placeholder": "请输入email",
+        "keyboardType": "email"
+      },
+      "password": {
+        "title": "密码",
+        "type": "text",
+        "placeholder": "请输入密码",
+        "keyboardType": "password"
+      },
       "name": {
         "title": "姓名",
         "type": "text",
         "placeholder": "请输入姓名",
-        "keyboardType": "default"
+        "keyboardType": "text"
       },
       "gender": {
         "title": "性别",
