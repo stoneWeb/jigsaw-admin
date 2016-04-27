@@ -1,0 +1,38 @@
+<h3>{{title}}</h3>
+<div class="alert alert-info" role="alert">
+  该问卷总参与人数:{{total}}人 实际答卷人数:{{len}}人
+</div>
+
+<div ng-repeat="t in result track by $index">
+    <h5>{{$index+1}}.{{t.title}}</h5>
+    <div ng-if='t.type != "radio" && t.type != "multi"'>
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>用户答案</th>
+          </tr>
+          <tr ng-repeat="txt in t.ret">
+            <td>{{txt}}</td>
+          </tr>
+        </table>
+    </div>
+    <div ng-if='t.type == "radio" || t.type == "multi"'>
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>选项</th>
+            <th width="100">小计</th>
+            <th>比例</th>
+          </tr>
+          <tr ng-repeat="item in t.options track by $index">
+            <td>{{item}}</td>
+            <td>{{t.ret[$index]}}</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width: {{caleScale(t.ret[$index]/len)}}">
+                  {{caleScale(t.ret[$index]/len)}}
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+    </div>
+</div>
