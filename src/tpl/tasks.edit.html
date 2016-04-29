@@ -5,7 +5,7 @@
         <label>Task Title</label>
         <input type="text" ng-model="title" class="form-control" placeholder="Title">
         <br/>
-        <label>Select Question</label>
+        <label>Select Study</label>
         <select class="form-control" ng-model="quest" ng-options="m.title for m in questions"></select>
         <br/>
         <label>Select Users</label>
@@ -15,7 +15,7 @@
         </div>
         <div class="user-swrap">
           <div class="user-s">
-            <div class="user-s-tr" ng-repeat="item in users track by $index" ng-click="selected($index)">
+            <div class="user-s-tr" ng-repeat="item in users track by $index" ng-if="item.uid > 1" ng-click="selected($index)">
               <span ng-class="{'user-s-sel': true, active: item.checked}"><i class="ion ion-checkmark"></i></span>
               <span>{{item.name}}</span>
               <span>{{item.email}}</span>
