@@ -13,7 +13,7 @@
       <th><input type="checkbox" ng-click="ckAll($event)"></th>
       <th>Title</th>
       <th>users</th>
-      <th>question</th>
+      <th>Study</th>
       <th>reminder</th>
       <th>start Date</th>
       <th>end Date</th>
@@ -28,6 +28,10 @@
     <td>{{item.reminder}}</td>
     <td>{{item.startDate}}</td>
     <td>{{item.endDate}}</td>
-    <td><a href="#/tasks/edit/{{item.sid}}" class="table-handle-icon" uib-tooltip="Edit Task"><i class="ion ion-edit"></i></a><a href="javascript:;" class="table-handle-icon" uib-tooltip="Delete Task"><i class="ion ion-android-delete"></i></a></td>
+    <td>
+      <a href="#/tasks/edit/{{item.sid}}" class="table-handle-icon" uib-tooltip="Edit Task"><i class="ion ion-edit"></i></a>
+      <a href="#/results/{{item.sid}}" class="table-handle-icon" uib-tooltip="view result"><i class="ion ion-eye"></i></a>
+      <!--<a href="javascript:;" class="table-handle-icon" uib-tooltip="Delete Task"><i class="ion ion-android-delete"></i></a>-->
+    </td>
   </tr>
 </table>
