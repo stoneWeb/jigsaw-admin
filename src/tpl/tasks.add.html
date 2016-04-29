@@ -5,7 +5,7 @@
         <label>Task Title</label>
         <input type="text" ng-model="title" class="form-control" placeholder="Title">
         <br/>
-        <label>Select Question</label>
+        <label>Select Study</label>
         <select class="form-control" ng-model="quest" ng-options="m.title for m in questions"></select>
         <br/>
         <label>Select Users</label>
@@ -15,7 +15,7 @@
         </div>
         <div class="user-swrap">
           <div class="user-s">
-            <div class="user-s-tr" ng-repeat="item in users track by $index" ng-click="selected($index)">
+            <div class="user-s-tr" ng-repeat="item in users track by $index" ng-click="selected($index)" ng-if="item.uid > 1">
               <span ng-class="{'user-s-sel': true, active: item.checked}"><i class="ion ion-checkmark"></i></span>
               <span>{{item.name}}</span>
               <span>{{item.email}}</span>
@@ -29,11 +29,23 @@
         <div class="form-inline set-reminder">
           <div class="form-group">
               <label for="">days</label>
-              <input type="number" ng-model="t2.day" class="form-control" min="1">
-              <label for="">time</label>
-              <div class="time-ctrl">
-                <uib-timepicker ng-model="t2.time" arrowkeys="false" show-meridian="t2.ismeridian"></uib-timepicker>
+              <input type="number" ng-model="t2.day" class="form-control" min="1" style="width:80px">
+              <br/>
+              <br/>
+              <label for="">hours</label>
+              <div class="time-ctrl" ng-repeat="h in t2.hours track by $index">
+                <a href="javascript:;" ng-if="$index > 0" ng-click="removeItem('hours', $index)" class="task-choice-delbtn"><i class="ion ion-minus-circled"></i></a>
+                <input type="number" ng-model="t2.hours[$index]" class="form-control" min="0" max="23" style="width:80px">
               </div>
+              <a href="javascript:;" style="margin-left:0" ng-click="addItem('hours')" class="ctrl-choice-addbtn"><i class="ion ion-plus-circled"></i></a>
+              <br/>
+              <br/>
+              <label for="">minutes</label>
+              <div class="time-ctrl" ng-repeat="m in t2.minutes track by $index">
+                <a href="javascript:;" ng-if="$index > 0" ng-click="removeItem('minutes', $index)" class="task-choice-delbtn"><i class="ion ion-minus-circled"></i></a>
+                <input type="number" ng-model="t2.minutes[$index]" class="form-control" min="1" max="59" style="width:80px">
+              </div>
+              <a href="javascript:;" style="margin-left:0" ng-click="addItem('minutes')" class="ctrl-choice-addbtn"><i class="ion ion-plus-circled"></i></a>
           </div>
         </div>
         <br/>
