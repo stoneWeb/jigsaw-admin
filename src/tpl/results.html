@@ -1,6 +1,9 @@
 <h3>{{title}}</h3>
-<div class="alert alert-info" role="alert">
+<div class="alert alert-info" role="alert" ng-if="total">
   该问卷总参与人数:{{total}}人 实际答卷人数:{{len}}人
+</div>
+<div class="alert alert-danger" role="alert" ng-if="!total">
+  暂无数据！
 </div>
 
 <div ng-repeat="t in result track by $index">
