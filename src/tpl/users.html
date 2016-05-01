@@ -1,5 +1,6 @@
 <div class="filter">
   <a href="javascript:;" class="filter-add btn btn-success" ng-click="addUser()">Add User</a>
+  <a href="javascript:;" class="filter-add btn btn-success" ng-click="sendPush()">Selected User Send Notification</a>
   <div class="input-group">
     <input type="text" class="form-control" ng-model="query" placeholder="Search for...">
     <span class="input-group-btn">
@@ -24,7 +25,7 @@
       <th>Handle</th>
     </tr>
   </thead>
-  <tr ng-repeat="item in list | filter:query track by $index">
+  <tr ng-repeat="item in list | filter:query track by $index" ng-if="item.uid > 1">
     <td><input type="checkbox" ng-model="item.checked"></td>
     <td>{{item.name}}</td>
     <td><a href="mailto:{{item.email}}">{{item.email}}</a></td>
@@ -36,6 +37,9 @@
     <td>{{item.pc_os}}</td>
     <td><span ng-class="{label: true, 'label-success': item.question.length > 0, 'label-default': item.question.length == 0}">{{item.question.length}} Task</span></td>
     <td>{{item.location}}</td>
-    <td><a href="javascript:;" class="table-handle-icon" ng-click="editUser($index)" uib-tooltip="Edit User"><i class="ion ion-edit"></i></a><a href="javascript:;" class="table-handle-icon" ng-click="removeUser($index)" uib-tooltip="Delete User"><i class="ion ion-android-delete"></i></a></td>
+    <td>
+      <a href="javascript:;" class="table-handle-icon" ng-click="editUser($index)" uib-tooltip="Edit User"><i class="ion ion-edit"></i></a>
+      <a href="javascript:;" class="table-handle-icon" ng-click="removeUser($index)" uib-tooltip="Delete User"><i class="ion ion-android-delete"></i></a>
+    </td>
   </tr>
 </table>
