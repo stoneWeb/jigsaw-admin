@@ -425,10 +425,21 @@ a:hover, a:focus {
 .form-inline .time-ctrl{
 	vertical-align: middle;
 	display: inline-block;
+	position: relative;
+	margin-right: 15px;
 }
 .time-ctrl tr.text-center{
 	display: none;
 }
 .set-duration label, .set-reminder label{
-	margin-left: 10px
+	margin-left: 10px;
+}
+.set-reminder label{
+	width: 50px;
+}
+.task-choice-delbtn{
+	position: absolute;
+	right: 0;
+	top: -18px;
+	font-size: 18px;
 }
