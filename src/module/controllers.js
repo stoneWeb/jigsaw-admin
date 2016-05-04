@@ -11,6 +11,7 @@ import QuesEditCtrl from './pageCtrl/question.edit';
 import TasksCtrl from './pageCtrl/task';
 import TasksAddCtrl from './pageCtrl/task.add';
 import TasksEditCtrl from './pageCtrl/task.edit';
+import ResultsCtrl from './pageCtrl/result';
 import UsersCtrl from './pageCtrl/user';
 import ModalCtrl from './pageCtrl/modalctrl';
 
@@ -25,5 +26,6 @@ angular.module('App.controllers', [ng_chart.name])
 .controller('TasksCtrl', TasksCtrl)
 .controller('TasksAddCtrl', TasksAddCtrl)
 .controller('TasksEditCtrl', TasksEditCtrl)
+.controller('ResultsCtrl', ResultsCtrl)
 .controller('MenuCtrl', MenuCtrl)
 .controller('DashCtrl', DashCtrl);
