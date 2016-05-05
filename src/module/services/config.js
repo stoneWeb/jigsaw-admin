@@ -31,6 +31,7 @@ export default class Congfig {
       'user'    : '/api/v1/users',
       'question': '/api/v1/questions',
       'task'    : '/api/v1/tasks',
+      'result'  : '/api/v1/results',
       'push'    : '/api/v1/push'
     }
 
