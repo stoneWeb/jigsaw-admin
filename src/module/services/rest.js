@@ -27,13 +27,14 @@ export default class Rest {
         var params = {
           'user'    : [host+Cfg.API['user']+'/:uid', {uid:"@id"}, header],
           'question': [host+Cfg.API['question']+'/:sid', {sid:"@id"}, header],
-          'task'    : [host+Cfg.API['task']+'/:sid', {sid:"@id"}, header]
+          'task'    : [host+Cfg.API['task']+'/:sid', {sid:"@id"}, header],
+          'result'  : [host+Cfg.API['result']+'/:sid', {sid:"@id"}, header]
         }
 
         return $resource.apply(null, params[api.toLowerCase()]);
       }
 
-      ['User', 'Question', 'Task'].forEach((model) => {
+      ['User', 'Question', 'Task', 'Result'].forEach((model) => {
           this[model] = () => {
               return creatResource(model)
           }
