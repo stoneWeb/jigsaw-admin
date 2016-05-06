@@ -55,6 +55,13 @@ let routerCfg = {
     template: require('../tpl/tasks.edit.html'),
     controller: 'TasksEditCtrl'
   },
+  '/results': {
+    crumbs: ['Results'],
+    state: 'admin.results',
+    url: 'results/:id',
+    template: require('../tpl/results.html'),
+    controller: 'ResultsCtrl'
+  }
 }
 
 let router = ($urlRouterProvider, $stateProvider, $locationProvider) => {
