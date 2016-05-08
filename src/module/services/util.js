@@ -30,6 +30,19 @@ export default class Util {
               }
             });
     }
+    openPush(data){
+      return this.$uibModal.open({
+              animation: true,
+              template: require('../../tpl/push.html'),
+              controller: 'ModalCtrl',
+              size: 'sm',
+              resolve: {
+                data(){
+                  return Object.assign({type: 'push'}, data || {});
+                }
+              }
+            });
+    }
     formatDate(date){
         return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate()
     }
