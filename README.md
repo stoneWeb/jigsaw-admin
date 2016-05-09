@@ -18,3 +18,5 @@ please execute the command:
 ```
 npm install chart.js
 ```
+####screenshots
+![](screenshots.png)
