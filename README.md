@@ -1,5 +1,6 @@
 # Angular + WebPack + Babel
-
+###screenshots
+![](screenshots.png)
 ###run
 ```
 npm install
@@ -18,5 +19,3 @@ please execute the command:
 ```
 npm install chart.js
 ```
-####screenshots
-![](screenshots.png)
