@@ -14,7 +14,10 @@
             <th>用户答案</th>
           </tr>
           <tr ng-repeat="txt in t.ret">
-            <td>{{txt}}</td>
+            <td ng-if='t.type == "image"'>
+              <img ng-repeat="src in txt" style="max-width:20%" src="http://localhost:8888{{src}}" alt="">
+            </td>
+            <td ng-if='t.type == "textInput"'>{{txt}}</td>
           </tr>
         </table>
     </div>
