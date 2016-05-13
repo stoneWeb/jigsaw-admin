@@ -38,6 +38,7 @@
                 <input type="number" ng-model="t2.hours[$index]" class="form-control" min="0" max="23" style="width:80px">
               </div>
               <a href="javascript:;" style="margin-left:0" ng-click="addItem('hours')" class="ctrl-choice-addbtn"><i class="ion ion-plus-circled"></i></a>
+              <!--
               <br/>
               <br/>
               <label for="">minutes</label>
@@ -46,6 +47,7 @@
                 <input type="number" ng-model="t2.minutes[$index]" class="form-control" min="1" max="59" style="width:80px">
               </div>
               <a href="javascript:;" style="margin-left:0" ng-click="addItem('minutes')" class="ctrl-choice-addbtn"><i class="ion ion-plus-circled"></i></a>
+              -->
           </div>
         </div>
         <br/>
@@ -69,6 +71,10 @@
             </div>
           </div>
         </div>
+        <br/>
+        <br/>
+        <label>notice</label>
+        <input type="text" ng-model="notice" class="form-control" placeholder="Title">
       </div>
     </div>
   </div>
