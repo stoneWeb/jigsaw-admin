@@ -58,12 +58,13 @@ export default class ResultsCtrl {
           $scope.total = d.task.users.length;
 
           var d = transferDataToView(d.data, d.study);
+          console.log(d);
           $scope.len = d.len;
           $scope.result = d.result;
       }, () => { alert('request error')});
 
     $scope.caleScale = (n) => {
-        return parseInt(n*100) + "%"
+        return n*1==n?(parseInt(n*100) + "%"):"0%"
     }
   }
 }
